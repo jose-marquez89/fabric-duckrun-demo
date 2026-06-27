@@ -1,0 +1,7 @@
+collisions_warehouse:
+  target: dev
+  outputs:
+    dev:
+      type: duckrun
+      schema: cdw
+      root_path: "{{ env_var('SLV_LH_PATH') }}/Tables"

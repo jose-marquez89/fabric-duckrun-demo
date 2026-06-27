@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: bronze_lakehouse
+    tables:
+      - name: collisions
+        meta:
+          plugin: duckrun
+          format: csv
+          location: "{{ env_var('BRZ_LH_PATH') }}/Files/nyc-open-data/collisions.csv"
