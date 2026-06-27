@@ -15,6 +15,7 @@ SELECT
         'latitude',
         'longitude',
         'location',
+        'borough',
         'on_street_name',
         'cross_street_name',
         'off_street_name'])

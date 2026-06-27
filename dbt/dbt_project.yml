@@ -21,8 +21,5 @@ models:
     staging:
       +materialized: table
     marts:
-      core:
-        +materialized: table
-        +schema: cdw
       +materialized: table
       +schema: cdw
