@@ -23,5 +23,5 @@ dim AS (
 )
 
 SELECT *,
-    {{ create_int_sk('reason') }} AS dim_reason_sk
+    {{ create_int_sk(['reason']) }} AS dim_reason_sk
 FROM dim;
