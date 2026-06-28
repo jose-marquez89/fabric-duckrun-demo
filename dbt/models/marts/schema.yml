@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: dim_date
+    columns:
+      - name: dim_date_sk
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_location
+    columns:
+      - name: dim_location_sk
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_reason
+    columns:
+      - name: dim_reason_sk
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_vehicle_type
+    columns:
+      - name: dim_vehicle_type_sk
+        tests:
+          - not_null
+          - unique
