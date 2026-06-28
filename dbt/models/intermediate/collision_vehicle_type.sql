@@ -1,4 +1,4 @@
-{{ config(merge_schema='true') }}
+{{ config(merge_schema='true', schema='int') }}
 
 WITH vehicle_types AS (
     SELECT
