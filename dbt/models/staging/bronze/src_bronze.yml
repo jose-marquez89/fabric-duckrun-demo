@@ -7,4 +7,4 @@ sources:
         meta:
           plugin: duckrun
           format: csv
-          location: "{{ env_var('BRZ_LH_PATH') }}/Files/nyc-open-data/collisions.csv"
+          location: "{{ env_var('TARGET_LH_PATH') }}/Files/nyc-open-data/collisions.csv"
