@@ -1,0 +1,26 @@
+relationship 8df768e6-44e5-5bac-9134-c20873e341fb
+	fromColumn: fact_collision.dim_date_sk
+	toColumn: dim_date.dim_date_sk
+
+relationship 362536d3-5e40-ffe5-410f-eee5009fd8c4
+	fromColumn: fact_collision.dim_location_sk
+	toColumn: dim_location.dim_location_sk
+
+relationship fd6d5c0f-1d8a-8540-8336-28ff5b23bd80
+	crossFilteringBehavior: bothDirections
+	fromColumn: bridge_vehicle_type.collision_id
+	toColumn: fact_collision.crash_id
+
+relationship 38cb6e91-45b0-5fab-fc35-cf64b17bff7b
+	crossFilteringBehavior: bothDirections
+	fromColumn: bridge_reason.collision_id
+	toColumn: fact_collision.crash_id
+
+relationship ab53ae99-4ed4-f2ce-b31b-fa8580bcb349
+	fromColumn: bridge_reason.dim_reason_sk
+	toColumn: dim_reason.dim_reason_sk
+
+relationship 2f19c5ec-c279-aa6b-b348-07f635a544df
+	fromColumn: bridge_vehicle_type.dim_vehicle_type_sk
+	toColumn: dim_vehicle_type.dim_vehicle_type_sk
+
