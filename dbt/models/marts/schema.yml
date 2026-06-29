@@ -78,7 +78,7 @@ models:
   - name: fact_collision
     description: "Fact table at the collision-event grain. Contains counts of injuries/fatalities and FK references to dimension tables. Intended for analytical queries by date and location."
     columns:
-      - name: crash_id
+      - name: collision_id
         description: "Original collision identifier from the source (used as the natural key)."
         tests:
           - not_null
