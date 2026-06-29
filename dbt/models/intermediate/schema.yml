@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: collision_reason
+    description: "Intermediate model that explodes contributing factor columns into a normalized reason dimension input. Removes duplicates and upper-cases reason text."
+    columns:
+      - name: collision_id
+        description: "Source collision identifier, preserved to allow joining back to the event-level fact."
+      - name: reason
+        description: "Normalized contributing factor text (upper-cased)."
+      - name: dim_reason_sk
+        description: "Synthetic surrogate key created for loading the reasons dimension."
+
+  - name: collision_vehicle_type
+    description: "Intermediate model that explodes vehicle type code columns into a normalized vehicle type dimension input. Removes duplicates and upper-cases vehicle type."
+    columns:
+      - name: collision_id
+        description: "Source collision identifier, preserved to allow joining back to the event-level fact."
+      - name: vehicle_type
+        description: "Normalized vehicle type text (upper-cased)."
+      - name: dim_vehicle_type_sk
+        description: "Synthetic surrogate key created for loading the vehicle type dimension."

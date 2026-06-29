@@ -2,29 +2,107 @@ version: 2
 
 models:
   - name: dim_date
+    description: "Date dimension generated from the collisions dataset. Contains calendar attributes and a surrogate key `dim_date_sk` in YYYYMMDD numeric form."
     columns:
       - name: dim_date_sk
+        description: "Surrogate key for the date dimension in the form YYYYMMDD (e.g. 20260629)."
         tests:
           - not_null
           - unique
+      - name: full_date
+        description: "The calendar date (DATE)."
+      - name: year_number
+        description: "Numeric year extracted from `full_date`."
+      - name: month_number
+        description: "Numeric month extracted from `full_date` (1-12)."
+      - name: month_name
+        description: "Human-friendly abbreviated month name (Jan, Feb, ...)."
+      - name: day_of_week
+        description: "Numeric day of week (0-6 or DB-specific)."
+      - name: is_weekend
+        description: "Boolean indicating whether the date falls on a weekend."
+      - name: load_date
+        description: "Timestamp when the row was generated in this model."
 
   - name: dim_location
+    description: "Location dimension derived from unique latitude/longitude/location combinations in the collisions feed. Used as a foreign key from the fact table."
     columns:
       - name: dim_location_sk
+        description: "Synthetic primary key for locations generated deterministically from the set of identifying attributes."
         tests:
           - not_null
           - unique
+      - name: latitude
+        description: "Latitude (DECIMAL) for the collision location."
+      - name: longitude
+        description: "Longitude (DECIMAL) for the collision location."
+      - name: location
+        description: "Raw location string as provided by the source (may include address/coordinate text)."
+      - name: borough
+        description: "NYC borough where the collision occurred."
+      - name: on_street_name
+        description: "Primary on-street name (upper-cased and normalized)."
+      - name: cross_street_name
+        description: "Cross street name (upper-cased and normalized)."
+      - name: off_street_name
+        description: "Off-street name (upper-cased and normalized)."
+      - name: load_date
+        description: "Timestamp when the row was generated in this model."
 
   - name: dim_reason
+    description: "Dimension containing normalized contributing factor reasons extracted from multi-column contributing factor fields."
     columns:
       - name: dim_reason_sk
+        description: "Synthetic surrogate key for the reason dimension."
         tests:
           - not_null
           - unique
+      - name: reason
+        description: "Normalized (upper-cased) contributing-factor text such as 'UNSAFE SPEED', 'DRIVER INATTENTION/DISTRACTION', etc."
+      - name: load_date
+        description: "Timestamp when the row was generated in this model."
 
   - name: dim_vehicle_type
+    description: "Dimension of vehicle types involved in collisions (normalized from 5 vehicle type code columns)."
     columns:
       - name: dim_vehicle_type_sk
+        description: "Synthetic surrogate key for the vehicle type dimension."
         tests:
           - not_null
           - unique
+      - name: vehicle_type
+        description: "Normalized vehicle type value (upper-cased), e.g. 'PASSENGER VEHICLE', 'TAXI'."
+      - name: load_date
+        description: "Timestamp when the row was generated in this model."
+
+  - name: fact_collision
+    description: "Fact table at the collision-event grain. Contains counts of injuries/fatalities and FK references to dimension tables. Intended for analytical queries by date and location."
+    columns:
+      - name: crash_id
+        description: "Original collision identifier from the source (used as the natural key)."
+        tests:
+          - not_null
+      - name: crash_timestamp
+        description: "Timestamp of the collision, built from the source date and time columns."
+      - name: persons_injured
+        description: "Total number of persons injured in the collision."
+      - name: persons_killed
+        description: "Total number of persons killed in the collision."
+      - name: pedestrians_injured
+        description: "Number of pedestrians injured."
+      - name: pedestrians_killed
+        description: "Number of pedestrians killed."
+      - name: cyclists_injured
+        description: "Number of cyclists injured."
+      - name: cyclists_killed
+        description: "Number of cyclists killed."
+      - name: motorists_injured
+        description: "Number of motorists injured."
+      - name: motorists_killed
+        description: "Number of motorists killed."
+      - name: dim_location_sk
+        description: "Foreign key to `dim_location.dim_location_sk` identifying the collision location."
+      - name: dim_date_sk
+        description: "Foreign key to `dim_date.dim_date_sk` identifying the collision date."
+      - name: load_date
+        description: "Timestamp when the row was generated in this model."
