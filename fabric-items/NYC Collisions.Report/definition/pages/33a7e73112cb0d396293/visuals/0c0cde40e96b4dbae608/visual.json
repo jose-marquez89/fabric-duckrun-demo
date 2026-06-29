@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "f0279060f7dae6f4a324",
+  "name": "0c0cde40e96b4dbae608",
   "position": {
-    "x": 189.67339022498058,
-    "y": 73.4833204034135,
-    "z": 7,
-    "height": 128.30769230769232,
-    "width": 204,
-    "tabOrder": 7
+    "x": 597.63830041176789,
+    "y": 71.1344512740944,
+    "z": 10,
+    "height": 129.09231962761831,
+    "width": 202.57564003103181,
+    "tabOrder": 10
   },
   "visual": {
     "visualType": "card",
@@ -25,15 +25,15 @@
                           "Entity": "fact_collision"
                         }
                       },
-                      "Property": "pedestrians_injured"
+                      "Property": "cyclists_injured"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(fact_collision.pedestrians_injured)",
-              "nativeQueryRef": "Pedestrians Injured",
-              "displayName": "Pedestrians Injured"
+              "queryRef": "Sum(fact_collision.cyclists_injured)",
+              "nativeQueryRef": "Cyclists Injured",
+              "displayName": "Cyclists Injured"
             }
           ]
         }
@@ -50,7 +50,7 @@
                         "Entity": "fact_collision"
                       }
                     },
-                    "Property": "pedestrians_injured"
+                    "Property": "cyclists_injured"
                   }
                 },
                 "Function": 0
@@ -67,7 +67,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "8ffe21552207c7fda9e8",
+        "name": "1a2249b506cb15e70c1f",
         "field": {
           "Aggregation": {
             "Expression": {
@@ -77,7 +77,7 @@
                     "Entity": "fact_collision"
                   }
                 },
-                "Property": "pedestrians_injured"
+                "Property": "cyclists_injured"
               }
             },
             "Function": 0

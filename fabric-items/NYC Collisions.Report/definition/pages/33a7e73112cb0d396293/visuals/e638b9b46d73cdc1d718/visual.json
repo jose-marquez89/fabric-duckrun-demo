@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "e638b9b46d73cdc1d718",
   "position": {
-    "x": 0,
+    "x": 380.30769230769232,
     "y": 0,
     "z": 2,
-    "height": 95.241210139002462,
-    "width": 201.99509403107115,
+    "height": 62.769230769230774,
+    "width": 201.23076923076925,
     "tabOrder": 2
   },
   "visual": {
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "dim_vehicle_type.vehicle_type",
-              "nativeQueryRef": "vehicle_type",
-              "active": true
+              "nativeQueryRef": "Vehicle Type",
+              "active": true,
+              "displayName": "Vehicle Type"
             }
           ]
         }
@@ -94,7 +95,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'AMBULANCE'"
+                                "Value": "'SEDAN'"
                               }
                             }
                           ]

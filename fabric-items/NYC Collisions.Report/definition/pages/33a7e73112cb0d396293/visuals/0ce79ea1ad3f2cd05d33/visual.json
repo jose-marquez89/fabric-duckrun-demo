@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "0ce79ea1ad3f2cd05d33",
   "position": {
-    "x": 679.22420480993014,
+    "x": 1058.7692307692309,
     "y": 0,
     "z": 5,
-    "height": 72.490302560124121,
-    "width": 220.44996121024047,
+    "height": 62.769230769230774,
+    "width": 220.61538461538464,
     "tabOrder": 5
   },
   "visual": {
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "dim_location.borough",
-              "nativeQueryRef": "borough",
-              "active": true
+              "nativeQueryRef": "Borough",
+              "active": true,
+              "displayName": "Borough"
             }
           ]
         }
@@ -88,7 +89,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'STATEN ISLAND'"
+                                "Value": "'QUEENS'"
                               }
                             }
                           ]

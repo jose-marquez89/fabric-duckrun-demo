@@ -6,7 +6,7 @@
     "y": 73.4833204034135,
     "z": 1,
     "height": 128.09930178432893,
-    "width": 242.29635376260666,
+    "width": 195.62451512800621,
     "tabOrder": 1
   },
   "visual": {
@@ -32,7 +32,8 @@
                 }
               },
               "queryRef": "Sum(fact_collision.persons_injured)",
-              "nativeQueryRef": "Sum of persons_injured"
+              "nativeQueryRef": "All Persons Injured",
+              "displayName": "All Persons Injured"
             }
           ]
         }

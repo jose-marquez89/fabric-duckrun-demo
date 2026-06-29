@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "eb992fb489f2252f6524",
   "position": {
-    "x": 476.49635036496352,
-    "y": 77.547445255474457,
+    "x": 393.673390224981,
+    "y": 73.4833204034135,
     "z": 8,
-    "height": 118.65693430656934,
-    "width": 202.74452554744525,
+    "height": 128.30769230769232,
+    "width": 203.07692307692309,
     "tabOrder": 8
   },
   "visual": {
@@ -32,7 +32,8 @@
                 }
               },
               "queryRef": "Sum(fact_collision.motorists_injured)",
-              "nativeQueryRef": "Sum of motorists_injured"
+              "nativeQueryRef": "Motorists Injured",
+              "displayName": "Motorists Injured"
             }
           ]
         }
@@ -62,5 +63,28 @@
       }
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "605c2bbf1325666ddcbb",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_collision"
+                  }
+                },
+                "Property": "motorists_injured"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

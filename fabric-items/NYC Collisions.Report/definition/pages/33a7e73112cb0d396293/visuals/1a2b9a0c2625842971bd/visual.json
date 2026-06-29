@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "1a2b9a0c2625842971bd",
   "position": {
-    "x": 476.64856477889833,
+    "x": 856.61538461538464,
     "y": 0,
     "z": 6,
-    "height": 72.490302560124121,
-    "width": 202.57564003103181,
+    "height": 62.769230769230774,
+    "width": 202.15384615384616,
     "tabOrder": 6
   },
   "visual": {
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "dim_date.year_number",
-              "nativeQueryRef": "year_number",
-              "active": true
+              "nativeQueryRef": "Year",
+              "active": true,
+              "displayName": "Year"
             }
           ]
         }

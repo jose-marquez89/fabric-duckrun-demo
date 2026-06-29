@@ -14,9 +14,9 @@ annotation PBI_ProTooling = ["DirectLakeOnOneLakeInWeb","WebModelingEdit"]
 
 ref table dim_reason
 ref table dim_vehicle_type
-ref table fact_collision
 ref table dim_location
 ref table bridge_vehicle_type
 ref table bridge_reason
 ref table dim_date
+ref table fact_collision
 

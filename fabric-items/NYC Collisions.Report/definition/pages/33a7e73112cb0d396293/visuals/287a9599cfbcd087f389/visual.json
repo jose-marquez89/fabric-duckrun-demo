@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "287a9599cfbcd087f389",
   "position": {
-    "x": 201.99509403107115,
+    "x": 581.53846153846155,
     "y": 0,
     "z": 3,
-    "height": 73.2624693376942,
-    "width": 254.32542927228127,
+    "height": 62.769230769230774,
+    "width": 254.76923076923077,
     "tabOrder": 3
   },
   "visual": {
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "dim_reason.reason",
-              "nativeQueryRef": "reason",
-              "active": true
+              "nativeQueryRef": "Reason",
+              "active": true,
+              "displayName": "Reason"
             }
           ]
         }
@@ -81,7 +82,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'UNSPECIFIED'"
+                                "Value": "'UNSAFE SPEED'"
                               }
                             }
                           ]
