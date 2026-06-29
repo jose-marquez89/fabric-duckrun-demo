@@ -1,0 +1,90 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "f0279060f7dae6f4a324",
+  "position": {
+    "x": 189.67339022498058,
+    "y": 73.4833204034135,
+    "z": 7,
+    "height": 128.30769230769232,
+    "width": 204,
+    "tabOrder": 7
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_collision"
+                        }
+                      },
+                      "Property": "pedestrians_injured"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fact_collision.pedestrians_injured)",
+              "nativeQueryRef": "Pedestrians Injured",
+              "displayName": "Pedestrians Injured"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fact_collision"
+                      }
+                    },
+                    "Property": "pedestrians_injured"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "8ffe21552207c7fda9e8",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_collision"
+                  }
+                },
+                "Property": "pedestrians_injured"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

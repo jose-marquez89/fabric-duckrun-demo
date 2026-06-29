@@ -1,0 +1,40 @@
+table dim_reason
+	lineageTag: 3140f54d-203f-4dcd-88de-ea0683ff6236
+	sourceLineageTag: [cdw].[dim_reason]
+
+	column dim_reason_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: b23baef4-638d-4706-912e-e01ac433faa0
+		sourceLineageTag: dim_reason_sk
+		summarizeBy: none
+		sourceColumn: dim_reason_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column load_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 48782502-2ce0-4749-bccb-cc349e772f1f
+		sourceLineageTag: load_date
+		summarizeBy: none
+		sourceColumn: load_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column reason
+		dataType: string
+		lineageTag: 13414601-4ad1-414a-a007-be3efcb99da6
+		sourceLineageTag: reason
+		summarizeBy: none
+		sourceColumn: reason
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_reason = entity
+		mode: directLake
+		source
+			entityName: dim_reason
+			schemaName: cdw
+			expressionSource: 'DirectLake - storage'
+
