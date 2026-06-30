@@ -48,6 +48,9 @@ table dim_date
 		sourceLineageTag: month_name
 		summarizeBy: none
 		sourceColumn: month_name
+		sortByColumn: month_number
+
+		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 

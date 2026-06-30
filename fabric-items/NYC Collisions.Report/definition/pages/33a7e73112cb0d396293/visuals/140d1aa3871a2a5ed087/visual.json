@@ -3,10 +3,10 @@
   "name": "140d1aa3871a2a5ed087",
   "position": {
     "x": 0,
-    "y": 212.08759124087592,
+    "y": 213.0046224961479,
     "z": 9,
-    "height": 497.05109489051097,
-    "width": 1280,
+    "height": 497.01078582434508,
+    "width": 640.98613251155621,
     "tabOrder": 9
   },
   "visual": {
@@ -32,7 +32,8 @@
                 }
               },
               "queryRef": "Sum(fact_collision.persons_injured)",
-              "nativeQueryRef": "Sum of persons_injured"
+              "nativeQueryRef": "People Injured",
+              "displayName": "People Injured"
             }
           ]
         },
@@ -50,7 +51,8 @@
                 }
               },
               "queryRef": "fact_collision.longitude",
-              "nativeQueryRef": "longitude"
+              "nativeQueryRef": "Longitude",
+              "displayName": "Longitude"
             }
           ]
         },
@@ -68,7 +70,8 @@
                 }
               },
               "queryRef": "fact_collision.latitude",
-              "nativeQueryRef": "latitude"
+              "nativeQueryRef": "Latitude",
+              "displayName": "Latitude"
             }
           ]
         }
@@ -114,21 +117,21 @@
             "zoom": {
               "expr": {
                 "Literal": {
-                  "Value": "9.95D"
+                  "Value": "11.16D"
                 }
               }
             },
             "centerLatitude": {
               "expr": {
                 "Literal": {
-                  "Value": "40.67649968799694D"
+                  "Value": "40.85138527097061D"
                 }
               }
             },
             "centerLongitude": {
               "expr": {
                 "Literal": {
-                  "Value": "-73.83850749999999D"
+                  "Value": "-73.87961199999995D"
                 }
               }
             }
@@ -184,6 +187,21 @@
               "expr": {
                 "Literal": {
                   "Value": "''"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Accident Location and Severity'"
                 }
               }
             }
