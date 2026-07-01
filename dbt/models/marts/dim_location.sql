@@ -1,4 +1,4 @@
-{{ config(merge_schema='true') }}
+{{ config(schema_mode='overwrite') }}
 
 SELECT DISTINCT
     latitude,
@@ -9,8 +9,6 @@ SELECT DISTINCT
     cross_street_name,
     off_street_name,
     {{ create_int_sk([
-        'latitude',
-        'longitude',
         'location',
         'borough',
         'on_street_name',

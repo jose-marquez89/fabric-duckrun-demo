@@ -1,0 +1,163 @@
+table fact_collision
+	lineageTag: 2bc9299f-4952-4b97-8973-91440ddb4591
+	sourceLineageTag: [cdw].[fact_collision]
+
+	column persons_injured
+		dataType: int64
+		formatString: 0
+		lineageTag: 8e80fa81-612a-48ab-b7be-a1f968496701
+		sourceLineageTag: persons_injured
+		summarizeBy: sum
+		sourceColumn: persons_injured
+
+		annotation SummarizationSetBy = Automatic
+
+	column persons_killed
+		dataType: int64
+		formatString: 0
+		lineageTag: d279e03d-ee64-4297-aec6-9c7a6282e090
+		sourceLineageTag: persons_killed
+		summarizeBy: sum
+		sourceColumn: persons_killed
+
+		annotation SummarizationSetBy = Automatic
+
+	column pedestrians_injured
+		dataType: int64
+		formatString: 0
+		lineageTag: 14ff4439-4e1f-4de3-8947-eb6c96bc872a
+		sourceLineageTag: pedestrians_injured
+		summarizeBy: sum
+		sourceColumn: pedestrians_injured
+
+		annotation SummarizationSetBy = Automatic
+
+	column pedestrians_killed
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b164710-0aca-4d2a-a6f9-f954e22f2e87
+		sourceLineageTag: pedestrians_killed
+		summarizeBy: sum
+		sourceColumn: pedestrians_killed
+
+		annotation SummarizationSetBy = Automatic
+
+	column cyclists_injured
+		dataType: int64
+		formatString: 0
+		lineageTag: eada46d2-6173-43d3-aebe-c7dc455ad446
+		sourceLineageTag: cyclists_injured
+		summarizeBy: sum
+		sourceColumn: cyclists_injured
+
+		annotation SummarizationSetBy = Automatic
+
+	column cyclists_killed
+		dataType: int64
+		formatString: 0
+		lineageTag: 7bf49815-e415-4fc5-9945-463fd9c26f5a
+		sourceLineageTag: cyclists_killed
+		summarizeBy: sum
+		sourceColumn: cyclists_killed
+
+		annotation SummarizationSetBy = Automatic
+
+	column motorists_injured
+		dataType: int64
+		formatString: 0
+		lineageTag: 4cadd40a-da01-42f6-806b-ee99354984ed
+		sourceLineageTag: motorists_injured
+		summarizeBy: sum
+		sourceColumn: motorists_injured
+
+		annotation SummarizationSetBy = Automatic
+
+	column motorists_killed
+		dataType: int64
+		formatString: 0
+		lineageTag: f31c9553-f79c-4b73-bee6-9f00d53cfaf6
+		sourceLineageTag: motorists_killed
+		summarizeBy: sum
+		sourceColumn: motorists_killed
+
+		annotation SummarizationSetBy = Automatic
+
+	column dim_location_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 11478d1a-fe3d-4556-8cff-f9147519cd6b
+		sourceLineageTag: dim_location_sk
+		summarizeBy: none
+		sourceColumn: dim_location_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column load_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2b7ea146-2c40-4844-a474-a12867922a19
+		sourceLineageTag: load_date
+		summarizeBy: none
+		sourceColumn: load_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column latitude
+		dataType: double
+		lineageTag: c27aa7b1-5e5a-4d94-93e4-2577e44057e7
+		sourceLineageTag: latitude
+		summarizeBy: sum
+		sourceColumn: latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column longitude
+		dataType: double
+		lineageTag: bcf96066-0738-48d5-89a7-b1e6ea07a279
+		sourceLineageTag: longitude
+		summarizeBy: sum
+		sourceColumn: longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column collision_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 93917542-1c7c-43fb-a0bb-d8e0553dced9
+		sourceLineageTag: collision_id
+		summarizeBy: none
+		sourceColumn: collision_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column collision_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c87e7586-2ee6-4cc1-afcd-4220039dc999
+		sourceLineageTag: collision_timestamp
+		summarizeBy: none
+		sourceColumn: collision_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column collision_date_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 4fc4046d-a7b0-4472-9cc0-173ddef27712
+		sourceLineageTag: collision_date_sk
+		summarizeBy: none
+		sourceColumn: collision_date_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_collision = entity
+		mode: directLake
+		source
+			entityName: fact_collision
+			schemaName: cdw
+			expressionSource: 'DirectLake - storage'
+

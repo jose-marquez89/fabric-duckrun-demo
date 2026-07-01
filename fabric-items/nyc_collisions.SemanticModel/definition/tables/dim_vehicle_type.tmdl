@@ -1,0 +1,40 @@
+table dim_vehicle_type
+	lineageTag: 4d25c7f2-d7d0-40b0-9d37-457f0b5576d4
+	sourceLineageTag: [cdw].[dim_vehicle_type]
+
+	column dim_vehicle_type_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 4de0fa1b-0940-45c8-a504-d6e0aa7cb80b
+		sourceLineageTag: dim_vehicle_type_sk
+		summarizeBy: none
+		sourceColumn: dim_vehicle_type_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column load_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9896570a-019d-4890-99a7-018a973a9611
+		sourceLineageTag: load_date
+		summarizeBy: none
+		sourceColumn: load_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column vehicle_type
+		dataType: string
+		lineageTag: 5223f623-5e67-406f-bae7-07846b10b360
+		sourceLineageTag: vehicle_type
+		summarizeBy: none
+		sourceColumn: vehicle_type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_vehicle_type = entity
+		mode: directLake
+		source
+			entityName: dim_vehicle_type
+			schemaName: cdw
+			expressionSource: 'DirectLake - storage'
+

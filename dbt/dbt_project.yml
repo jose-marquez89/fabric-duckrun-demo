@@ -20,6 +20,8 @@ models:
   collisions_warehouse:
     staging:
       +materialized: table
+    intermediate:
+      +materialized: table
     marts:
       +materialized: table
       +schema: cdw

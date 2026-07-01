@@ -1,0 +1,112 @@
+version: 2
+
+sources:
+  - name: bronze_lakehouse
+    description: "Raw bronze data loaded into the lakehouse from the NYC Open Data collisions dataset. Keep this definition minimal — the staging model normalizes and documents the columns for downstream models."
+    tables:
+      - name: collisions
+        description: "Raw collisions table ingested into the lakehouse. Columns are renamed and lightly cast in the `staging.collisions` model."
+        meta:
+          plugin: duckrun
+          format: csv
+          location: "{{ env_var('TARGET_LH_PATH') }}/Files/nyc-open-data/collisions.csv"
+        columns:
+          - name: crash_date
+            description: "Source crash date column."
+          - name: crash_time
+            description: "Source crash time column (string)."
+          - name: crash_timestamp
+            description: "Combined timestamp derived from `crash_date` + `crash_time`."
+          - name: latitude
+            description: "Latitude cast to DECIMAL(9,6)."
+          - name: longitude
+            description: "Longitude cast to DECIMAL(9,6)."
+          - name: location
+            description: "Text location field from the source."
+          - name: borough
+            description: "NYC borough where the collision occurred."
+          - name: on_street_name
+            description: "Upper-cased on-street name; defaults to 'STREET UNKNOWN' when missing."
+          - name: cross_street_name
+            description: "Upper-cased cross-street name; defaults to 'CROSS STREET UNKNOWN' when missing."
+          - name: off_street_name
+            description: "Upper-cased off-street name; defaults to 'OFF STREET UNKNOWN' when missing."
+          - name: number_of_persons_injured
+            description: "Total persons injured."
+          - name: number_of_persons_killed
+            description: "Total persons killed."
+          - name: number_of_pedestrians_injured
+            description: "Pedestrians injured."
+          - name: number_of_pedestrians_killed
+            description: "Pedestrians killed."
+          - name: number_of_cyclist_injured
+            description: "Cyclists injured."
+          - name: number_of_cyclist_killed
+            description: "Cyclists killed."
+          - name: number_of_motorist_injured
+            description: "Motorists injured."
+          - name: number_of_motorist_killed
+            description: "Motorists killed."
+          - name: contributing_factor_vehicle_1
+            description: "Contributing factor (vehicle 1)."
+          - name: contributing_factor_vehicle_2
+            description: "Contributing factor (vehicle 2)."
+          - name: contributing_factor_vehicle_3
+            description: "Contributing factor (vehicle 3)."
+          - name: contributing_factor_vehicle_4
+            description: "Contributing factor (vehicle 4)."
+          - name: contributing_factor_vehicle_5
+            description: "Contributing factor (vehicle 5)."
+          - name: collision_id
+            description: "Unique identifier for the collision event in the source."
+          - name: vehicle_type_code_1
+            description: "Vehicle type code (vehicle 1)."
+          - name: vehicle_type_code_2
+            description: "Vehicle type code (vehicle 2)."
+          - name: vehicle_type_code_3
+            description: "Vehicle type code (vehicle 3)."
+          - name: vehicle_type_code_4
+            description: "Vehicle type code (vehicle 4)."
+          - name: vehicle_type_code_5
+            description: "Vehicle type code (vehicle 5)."
+
+models:
+  - name: collisions
+    description: "Staging model that normalizes and casts raw bronze collision data to canonical column names and types for downstream modeling."
+    columns:
+      - name: crash_date
+        description: "Canonical crash date (DATE)."
+      - name: crash_time
+        description: "Crash time (string) preserved from source."
+      - name: crash_timestamp
+        description: "Derived timestamp combining crash date and time."
+      - name: latitude
+        description: "Latitude as DECIMAL(9,6)."
+      - name: longitude
+        description: "Longitude as DECIMAL(9,6)."
+      - name: location
+        description: "Raw location field."
+      - name: borough
+        description: "NYC borough."
+      - name: on_street_name
+        description: "Normalized on-street name."
+      - name: cross_street_name
+        description: "Normalized cross-street name."
+      - name: off_street_name
+        description: "Normalized off-street name."
+      - name: number_of_persons_injured
+        description: "Total persons injured."
+      - name: number_of_persons_killed
+        description: "Total persons killed."
+      - name: collision_id
+        description: "Source collision id used as the natural key in downstream models."
+      - name: vehicle_type_code_1
+        description: "Normalized vehicle type codes (1-5)."
+      - name: vehicle_type_code_2
+        description: "Normalized vehicle type codes (1-5)."
+      - name: vehicle_type_code_3
+        description: "Normalized vehicle type codes (1-5)."
+      - name: vehicle_type_code_4
+        description: "Normalized vehicle type codes (1-5)."
+      - name: vehicle_type_code_5
+        description: "Normalized vehicle type codes (1-5)."

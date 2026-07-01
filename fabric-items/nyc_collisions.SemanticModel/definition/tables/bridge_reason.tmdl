@@ -1,0 +1,31 @@
+table bridge_reason
+	lineageTag: 16caedf5-4e55-47d0-83f2-b44d381eebd2
+	sourceLineageTag: [cdw].[bridge_reason]
+
+	column collision_id
+		dataType: int64
+		formatString: 0
+		lineageTag: a8c84ed2-b921-4484-9db1-7f8f9bf1dfcc
+		sourceLineageTag: collision_id
+		summarizeBy: none
+		sourceColumn: collision_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column dim_reason_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 447329ac-c83b-4764-a926-c75e21e6be29
+		sourceLineageTag: dim_reason_sk
+		summarizeBy: none
+		sourceColumn: dim_reason_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	partition bridge_reason = entity
+		mode: directLake
+		source
+			entityName: bridge_reason
+			schemaName: cdw
+			expressionSource: 'DirectLake - storage'
+

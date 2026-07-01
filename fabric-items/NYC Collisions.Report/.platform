@@ -1,11 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "Lakehouse",
-    "displayName": "silver"
+    "type": "Report",
+    "displayName": "NYC Collisions"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "1ebd3d56-1005-8189-4b53-1a707be5a932"
+    "logicalId": "544fdc14-fdc2-af5a-4f6a-2453451cd54b"
   }
 }

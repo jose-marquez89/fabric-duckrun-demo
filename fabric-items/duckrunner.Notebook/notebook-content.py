@@ -9,12 +9,12 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse": "b3246fb3-7be6-4179-bb6d-00cc483432c1",
-# META       "default_lakehouse_name": "bronze",
+# META       "default_lakehouse": "7deef8f3-9263-4802-8fbe-eb72eade9ba1",
+# META       "default_lakehouse_name": "storage",
 # META       "default_lakehouse_workspace_id": "765a5a2b-3596-4e83-a39d-f2b211a8547c",
 # META       "known_lakehouses": [
 # META         {
-# META           "id": "b3246fb3-7be6-4179-bb6d-00cc483432c1"
+# META           "id": "7deef8f3-9263-4802-8fbe-eb72eade9ba1"
 # META         }
 # META       ]
 # META     }
@@ -36,15 +36,7 @@ notebookutils.session.restartPython()
 # CELL ********************
 
 import os
-
-slv_workspace = ''
-slv_lakehouse_art_id = ''
-gld_workspace = ''
-gld_lakehouse_art_id = ''
-
-os.environ["BRZ_LH_PATH"] = '/lakehouse/default'
-os.environ["SLV_LH_PATH"] = f'abfss://{slv_workspace}@onelake.dfs.fabric.microsoft.com/{slv_lakehouse_art_id}'
-os.environ["GLD_LH_PATH"] = f'abfss://{gld_workspace}@onelake.dfs.fabric.microsoft.com/{gld_lakehouse_art_id}'
+from dbt.cli.main import dbtRunner, dbtRunnerResult
 
 # METADATA ********************
 
@@ -55,9 +47,10 @@ os.environ["GLD_LH_PATH"] = f'abfss://{gld_workspace}@onelake.dfs.fabric.microso
 
 # CELL ********************
 
-from dbt.cli.main import dbtRunner, dbtRunnerResult
-
-dbt_project_dir = '/lakehouse/default/Files/dbt'
+workspace = "765a5a2b-3596-4e83-a39d-f2b211a8547c"
+lh_art_id = "7deef8f3-9263-4802-8fbe-eb72eade9ba1"
+os.environ["TARGET_LH_PATH"] = f"abfss://{workspace}@onelake.dfs.fabric.microsoft.com/{lh_art_id}"
+dbt_project_dir = "/lakehouse/default/Files/dbt"
 
 dbt = dbtRunner()
 
